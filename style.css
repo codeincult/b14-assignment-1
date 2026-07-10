@@ -1,15 +1,5 @@
 /******** Customized Global Reset  ********/
 
-:root {
-  --color-primary: #1d4ed8;
-  --color-primary-dark: #0d1b2a;
-  --color-grey: #575757;
-  --color-grey-light: #e5e7eb;
-  --color-grey-secondary: #333333;
-  --color-black: #000102;
-  --color-white: #ffffff;
-}
-
 *,
 *::before,
 *::after {
@@ -128,6 +118,16 @@ a {
 }
 
 /******** Actual Code ********/
+:root {
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #0d1b2a;
+  --color-grey: #575757;
+  --color-grey-light: #e5e7eb;
+  --color-grey-secondary: #333333;
+  --color-black: #000102;
+  --color-white: #ffffff;
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
@@ -333,6 +333,86 @@ body {
 
 .pricing-card__features > li::marker {
   color: var(--color-primary);
+}
+
+/***** Venue Section (Made by Codex AI) *****/
+.venue {
+  padding-top: 4rem;
+}
+
+.venue-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.venue-highlight {
+  min-height: 36rem;
+  padding: 4rem;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(7, 12, 20, 0.9), rgba(17, 24, 39, 0.68)),
+    url("./assets/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.venue-kicker {
+  color: #dbeafe;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.venue-highlight h4 {
+  max-width: 62rem;
+  font-size: 3.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.venue-highlight p:last-child {
+  max-width: 58rem;
+  color: #e5e7eb;
+}
+
+.venue-details {
+  display: grid;
+  gap: 2rem;
+}
+
+.venue-card {
+  padding: 2.4rem;
+  border: 2px solid var(--color-grey-light);
+  border-radius: 8px;
+  background-color: var(--color-white);
+}
+
+.venue-card__number {
+  display: inline-block;
+  color: var(--color-primary);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.4rem;
+}
+
+.venue-card h4 {
+  color: var(--color-primary-dark);
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.venue-card p {
+  color: var(--color-grey);
+  font-size: 1.4rem;
 }
 
 /***** Footer Section *****/
