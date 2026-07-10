@@ -4,6 +4,8 @@
   --color-primary: #1d4ed8;
   --color-primary-dark: #0d1b2a;
   --color-grey: #575757;
+  --color-grey-light: #e5e7eb;
+  --color-grey-secondary: #333333;
   --color-black: #000102;
   --color-white: #ffffff;
 }
@@ -48,7 +50,7 @@ p {
   text-wrap: pretty;
 }
 
-ul,
+ul:not([role="list"]),
 ol {
   list-style-type: none;
 }
@@ -68,9 +70,34 @@ a {
   padding-block: 8rem;
 }
 
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.section-title {
+  color: var(--color-primary-dark);
+  font-size: 5.6rem;
+  font-weight: 700;
+}
+
+.section-description {
+  color: var(--color-grey);
+}
+
+.two-parts {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  align-items: center;
+  justify-content: center;
+}
+
 /******** Reusable Components ********/
 .btn {
-  padding: 1.2rem 2.4rem;
+  padding: 1.2rem 3.6rem;
   font-weight: 700;
   background-color: transparent;
   cursor: pointer;
@@ -90,9 +117,19 @@ a {
   color: var(--color-primary);
 }
 
+.btn-secondary {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 /******** Actual Code ********/
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /***** Nav Section *****/
@@ -106,7 +143,8 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
+  color: var(--color-grey);
 }
 
 .nav-links > li:hover {
@@ -122,13 +160,172 @@ body {
       hsla(0, 0%, 100%, 0.01) 70%
     ),
     url("./assets/banner.jpg");
-  min-height: calc(100vh - 9rem);
+  min-height: calc(90vh - 9rem);
   background-size: cover;
   background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
   color: var(--color-white);
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 50%;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 8rem;
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 2.2rem;
+}
+
 .hero > button.btn-primary {
   border-color: var(--color-primary);
+}
+
+/***** Speakers Section *****/
+.speakers-content {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.speaker {
+  border: 1px solid var(--color-grey-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.speaker:nth-child(odd) {
+  justify-self: end;
+}
+
+.speaker:nth-child(even) {
+  justify-self: start;
+}
+
+.speaker-info {
+  padding: 2rem;
+}
+
+.speaker-info > * + * {
+  margin-top: 0.5rem;
+}
+
+.speaker-tag {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.speaker-name {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+}
+
+.speaker-desc {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--color-grey);
+}
+
+/***** Pricing Section *****/
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pricing-card {
+  flex-grow: 1;
+  max-width: 40rem;
+  padding: 2rem;
+  border: 2px solid var(--color-grey-light);
+  border-radius: 8px;
+}
+
+.pricing-card.recommended {
+  background-color: var(--color-primary-dark);
+
+  .pricing-card__title {
+    color: #93c5fd;
+  }
+
+  .pricing-card__price {
+    color: var(--color-white);
+  }
+
+  :is(.pricing-card__features, .pricing-card__limit) {
+    color: hsla(0, 0%, 100%, 0.8) !important;
+  }
+
+  .btn-primary {
+    border-color: transparent;
+  }
+
+  .btn-primary:hover {
+    border-color: var(--color-primary);
+  }
+
+  .pricing-card__heading {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.pricing-card__heading {
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--color-grey-light);
+}
+
+.pricing-card__title {
+  color: #888;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.pricing-card__price {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 4.4rem;
+}
+
+.pricing-card__limit {
+  font-size: 1.3rem;
+  color: var(--color-grey);
+  text-transform: lowercase;
+}
+
+.pricing-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card__features {
+  padding: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--color-grey-secondary);
+}
+
+.pricing-card__features > li::marker {
+  color: var(--color-primary);
 }
