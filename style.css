@@ -160,7 +160,7 @@ body {
       hsla(0, 0%, 100%, 0.01) 70%
     ),
     url("./assets/banner.jpg");
-  min-height: 100vh;
+  min-height: calc(90vh - 9rem);
   background-size: cover;
   background-position: center;
 
